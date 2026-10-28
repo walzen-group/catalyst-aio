@@ -1,0 +1,71 @@
+{
+  "files_changed": [
+    "skills/catalyst-aio/SKILL.md",
+    "skills/catalyst-aio/references/orchestrating.md",
+    "skills/catalyst-aio/references/reduced-workset.md",
+    "skills/catalyst-aio/references/subagents.md",
+    "skills/catalyst-aio/references/verifier.md",
+    "skills/catalyst-aio/references/planning.md",
+    "skills/catalyst-aio/references/effort.md",
+    "skills/catalyst-aio/references/test-first.md",
+    "skills/catalyst-aio/references/writing.md",
+    "skills/catalyst-aio/references/memory.md",
+    "skills/catalyst-aio/references/feedback.md",
+    "README.md",
+    "AGENTS.snippet.md",
+    ".gitignore"
+  ],
+  "diffs_per_worker": {
+    "aio-t2-core": {
+      "files": [
+        "skills/catalyst-aio/SKILL.md (274 lines)",
+        "skills/catalyst-aio/references/orchestrating.md (258)",
+        "skills/catalyst-aio/references/reduced-workset.md (118)",
+        "skills/catalyst-aio/references/subagents.md (218)",
+        "skills/catalyst-aio/references/verifier.md (166)"
+      ],
+      "verdict": "pass",
+      "notes": "All 130 inventory rows targeted at these five files placed. No file outside its target list touched. The repo has no commits, so every file is new and untracked; the per-file diff is the whole file. Deviations reviewed and accepted: the rejected-rationalizations list appears in both orchestrating.md and reduced-workset.md (inventory rows 244 and 321 ask for it in each); subagents.md states the consequence of the user agreeing to run in-session, which extends the index decision without contradicting it; .cortex/feedback entries are assigned to the fresh subagent rather than the orchestrator, matching the user's answer."
+    },
+    "aio-t3-planning": {
+      "files": [
+        "skills/catalyst-aio/references/planning.md (86 lines)",
+        "skills/catalyst-aio/references/effort.md (73)"
+      ],
+      "verdict": "pass after one steered repair",
+      "notes": "All 51 targeted rows placed. One cross-file defect found by this meta: planning.md wrote the verifier hand-back path as .cortex/reports/handbacks/<cycle>.md while six other places used <date>-<wave>.md. Steered to aio-t3-planning, which corrected the placeholder; a fresh grep after the steer shows all seven mentions agreeing. The effort defaults follow the inventory: verifier medium with high when the check needs judgment, matching rows 146 and 155 rather than the looser one-tier-above sentence in the task spec."
+    },
+    "aio-t4-writing": {
+      "files": [
+        "skills/catalyst-aio/references/test-first.md (134 lines)",
+        "skills/catalyst-aio/references/writing.md (406)"
+      ],
+      "verdict": "pass",
+      "notes": "All 80 targeted rows placed, including the 21-row humanizer pattern list and the Final-grep triage table. writing.md accounts for 27 of the 38 style-grep hits, every one a quoted banned term, a bad example, the triage table or the grep pattern itself, which the file's own triage table sanctions."
+    },
+    "aio-t5-memory": {
+      "files": [
+        "skills/catalyst-aio/references/memory.md (135 lines)",
+        "skills/catalyst-aio/references/feedback.md (114)"
+      ],
+      "verdict": "pass",
+      "notes": "All 30 targeted rows placed. Row 61 lands as the user's answer (plan directory kept), superseding the inventory's older remove wording; memory.md and orchestrating.md state the same rule. The fresh-subagent feedback rule appears in feedback.md, orchestrating.md and SKILL.md with the same meaning."
+    },
+    "aio-t6-readme": {
+      "files": [
+        "README.md (114 lines)",
+        "AGENTS.snippet.md (7 lines)",
+        ".gitignore (1 line: .tmp/)"
+      ],
+      "verdict": "pass",
+      "notes": "All eight README sections present. The layout table matches the index Architecture line for line. The two settled user answers appear (plan dirs kept, top-tier cap of 2). AGENTS.snippet.md is 7 lines and clean of dropped-machinery vocabulary. README names herdr once, inside the provenance left-out list, which task 6 section 2 requires; whole-change check 1 excludes README for that reason."
+    }
+  },
+  "gate_evidence": ".cortex/reports/handbacks/2026-10-28-catalyst-aio-w2-gates.md",
+  "whole_change_output": "All five workers handed back and are settled; each recorded acceptance output and coverage table was read, and no worker gate was re-run. Whole-change verification from the index, run by this meta: check 1 (dropped-machinery grep over skills/ and AGENTS.snippet.md) exit 1, no output. Check 2 (reference list against SKILL.md routing) exact match, ten files. Check 3 sizes: SKILL.md 274 lines, references 1708 lines total, references uncapped per Global constraint 6. Check 4 frontmatter: name catalyst-aio matching the directory, description 781 characters on one line, metadata.version 0.1.0, metadata.distilled-from catalyst a00dd80; block parses as YAML. Check 5: ten cross-linked reference paths, all exist. Check 6 style: 38 Final-grep hits, all triaged as quotations in writing.md or the governance noun hold in SKILL.md, orchestrating.md and verifier.md; no prose defect. Inventory coverage: 38 rows sampled across all ten files plus all five cross-worker cross-link rows (4, 23, 135, 137, 173); every row landed, none compressed. User answers: plan dirs kept (orchestrating.md Step 7 item 5, memory.md close-out, README project-files table), feedback entry by a fresh subagent (orchestrating.md complaints step 3, feedback.md who-writes-the-entry, SKILL.md artifact ownership), top-tier cap of 2 (effort.md model map, README model routing). Repairs: one, the planning.md hand-back placeholder, steered to aio-t3-planning and verified after the fix. Holds: none. Open items for the orchestrator: (1) README names herdr once in the provenance left-out list. Task 6 section 2 requires that list, Global constraint 2's exception is narrow, and whole-change check 1 excludes README. Read as spec-conformant, flagged so the orchestrator can decide otherwise. (2) effort.md defaults the verifier to medium and raises it to high only when the check needs judgment, following inventory rows 146 and 155. The task-3 spec sentence about reviews and verification running one tier above spec'd implementation conflicts with those rows; the inventory is the contract (constraint 10), so the file follows it. (3) subagents.md adds one paragraph on what happens if the user agrees to proceed in a harness with no subagent facility: the roles run in order in one session and the report says the verification was not independent. The index decision only said to ask. The addition states a consequence and does not change the rule; accepted. (4) The feedback date placeholder is <YYYY-MM-DD> in feedback.md and <date> in SKILL.md; both mean a dated slug. Cosmetic, no action taken. (5) Repo state: no commits exist, so all fourteen files are untracked; nothing was committed or staged, per constraint 9. Smoke test: pass on all six criteria, answer quoted whole in the gates file, output at .tmp/smoke/answer.txt, contamination check clean. First smoke attempt failed at the CLI parser because --disallowedTools is variadic and consumed the positional prompt; the recorded run passed the prompt on stdin. Teacher kit at /etc/nixos/nix/catalyst: zero files newer than the wave start, so no worker wrote there. Shared checkout: no .tmp/ directory created by any worker, no file outside the named targets.",
+  "deliverable_paths": [
+    "/home/nixos/repos/catalyst-aio/README.md",
+    "/home/nixos/repos/catalyst-aio/skills/catalyst-aio/SKILL.md",
+    "/home/nixos/repos/catalyst-aio/skills/catalyst-aio/references/orchestrating.md"
+  ]
+}

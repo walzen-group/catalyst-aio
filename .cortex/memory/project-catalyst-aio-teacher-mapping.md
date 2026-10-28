@@ -1,0 +1,1 @@
+The teacher-to-catalyst-aio rule mapping is .cortex/plans/2026-10-28-catalyst-aio/inventory.md: 321 rows (keep/adapt/drop, target file) distilled from catalyst kit commit a00dd80, plus coverage of all 85 kit incidents. A later re-sync from the teacher starts from the teacher's skill diff since a00dd80 and updates this mapping, then the affected reference files.

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "entries": {
+    "feedback-slightly-reduced-means-machinery": {
+      "strength": 3,
+      "pin": false,
+      "created": "2026-10-28T15:49:10.387Z",
+      "last_relevant": "2026-10-28T16:23:19.797Z"
+    },
+    "project-catalyst-aio-teacher-mapping": {
+      "strength": 3,
+      "pin": false,
+      "created": "2026-10-28T15:49:03.783Z",
+      "last_relevant": "2026-10-28T16:23:19.797Z"
+    },
+    "project-catalyst-aio-user-design-choices": {
+      "strength": 3,
+      "pin": false,
+      "created": "2026-10-28T15:49:10.437Z",
+      "last_relevant": "2026-10-28T16:23:19.797Z"
+    }
+  }
+}

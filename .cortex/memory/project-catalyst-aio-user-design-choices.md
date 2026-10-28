@@ -1,0 +1,1 @@
+User design choices for catalyst-aio (2026-10-28), each made against the orchestrator's recommendation: plan dirs are always kept after close-out; every .cortex/feedback entry is written by a fresh subagent (the teacher's independence rule), not the orchestrator; the optional model map ships a default concurrency cap of 2 on the top tier. Do not 'simplify' these back.
